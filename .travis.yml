@@ -1,3 +1,16 @@
 install: npm install jpm
 
 script: jpm sign --api-key ${AMO_API_KEY} --api-secret ${AMO_API_SECRET}
+
+before_deploy:
+  - export RELEASE_PKG_FILE=$(ls *.xpi)
+  - echo "deploying ${RELEASE_PKG_FILE} to GitHub releases"
+
+deploy:
+  provider: releases
+  api_key: "${TRAVIS_GITHUB_TOKEN}"
+  file_glob: true
+  file: "${RELEASE_PKG_FILE}"
+  skip_cleanup: true
+  on:
+    tags: true
