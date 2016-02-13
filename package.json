@@ -1,0 +1,26 @@
+{
+  "title": "UnPrefix",
+  "name": "unprefix",
+  "version": "0.0.1",
+  "description": "Removes prefixes from URLs",
+  "main": "index.js",
+  "author": "Mithfindel",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "url", "prefix", "remove"
+  ],
+  "preferences": [{
+    "name": "prefixRegex",
+    "title": "URL Prefix Regex",
+    "description": "Link URLs will be matched against this regular expression",
+    "type": "string",
+    "value": "https?:\\/\\/bat5.com\\/go\\/\\d+\\/\\d+\\/\\d+\\/(.*)"
+  }],
+  "permissions": {
+    "private-browsing": true
+  }
+}
